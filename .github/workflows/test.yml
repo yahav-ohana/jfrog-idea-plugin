@@ -19,6 +19,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - uses: jfrog-fastci/fastci@main  # Use the FastCI optimization action
+        with:
+          github_token: ${{secrets.GITHUB_TOKEN}}
+          fastci_otel_token: ${{ secrets.COROLOGIX_OTEL_TOKEN }}
+          bashi_log_level: info
+
       # Install required tools
       - name: Set up Java
         uses: actions/setup-java@v3
